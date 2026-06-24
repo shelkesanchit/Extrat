@@ -1,0 +1,739 @@
+Extract ALL data from this document and return it as a structured JSON object.
+
+Organize the data logically with nested objects and arrays where appropriate.
+For example:
+- Group related fields into objects (order_info, customer, billing_address, etc.)
+- Use arrays for line items or repeated data
+- Include ALL text, numbers, dates, and other information found in the document
+
+Return ONLY valid JSON. Do not include any markdown formatting or code blocks.
+Ensure all field names are descriptive and use snake_case.
+
+
+output :-
+{
+  "purchase_order": {
+    "authorized_signatory_company": "r-pac (India) Pvt Ltd",
+    "customer_info": {
+      "address": "PLOT 101, MIDC, 19TH STREET, SATPUR, NASHIK-422007 422007 INDIA",
+      "gst_number": "27AAACG5018K1ZN",
+      "name": "DELTA MANUFACTURING LIMITED",
+      "state": "MAHARASHTRA",
+      "state_code": "27"
+    },
+    "destination_info": {
+      "address": "Plot No. A-195, TTC Industrial Area, MIDC Khairane Navi Mumbai 400710 MAHARASHTRA INDIA",
+      "mode_of_transport": null
+    },
+    "general_notes": [
+      "E&OE",
+      "ELECTRONICALLY GENERATED PO, HENCE THERE IS NO NEED FOR SIGNATURE."
+    ],
+    "line_items": [
+      {
+        "amount": 1074.4,
+        "cgst_amount": 26.86,
+        "cgst_percentage": 2.5,
+        "description": "229032-G-SL/ GAP KIDS TOPS SIZE LABELS -GLOBAL",
+        "fixed_attributes": [
+          {
+            "fixed_attribute": null,
+            "fixed_attribute_name": null,
+            "fixed_attribute_value": null,
+            "sl_no": 1
+          }
+        ],
+        "hsn_code": "58071010",
+        "igst_amount": 0,
+        "igst_percentage": 0,
+        "info": null,
+        "item_specifications": {
+          "additional_label": null,
+          "anilox": null,
+          "b2b_pasting": null,
+          "barcode_symbology": null,
+          "board_material_fabric": "COTTON PLAIN WEAVE - 15MM",
+          "coating": null,
+          "color_front": "GAP BLUE",
+          "color_reverse": "Color Reverse",
+          "cutting": "ULTRASONIC",
+          "cylinder_size": null,
+          "data_source": null,
+          "deboss": null,
+          "distress_effect": null,
+          "emboss": null,
+          "eyelet": null,
+          "finished_height": null,
+          "finished_length": null,
+          "finished_width": null,
+          "flat_length": "50 mm",
+          "flat_width": "14 mm",
+          "foil": null,
+          "fold": "LOOP FOLD",
+          "fsc_statement": null,
+          "graining": null,
+          "hole": null,
+          "hook_hanger": null,
+          "lamination": null,
+          "mesh_for_adhesive": null,
+          "mesh_for_print": null,
+          "packing_instructions": null,
+          "powder_type": null,
+          "press_type": null,
+          "printing_size": null,
+          "punching": null,
+          "rfid_base": null,
+          "roll_fan_fold": null,
+          "sew_in_space": null,
+          "side_pasting": null,
+          "special_instructions": null,
+          "string": null,
+          "taping": null,
+          "test_required": null,
+          "thermal_ink": null,
+          "type_woven_quality": null,
+          "ups": null,
+          "uv": null,
+          "variable_length": null,
+          "varnish": null,
+          "weft_color": null,
+          "window_pasting": null,
+          "wrap_color": null
+        },
+        "line_item_po_number": "273002789_0",
+        "line_item_so_number": "273002992_0",
+        "product_line": "PRINTED FABRIC LABEL",
+        "quantity": 1580,
+        "quantity_breakdown_by_size": [
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 140,
+            "r_trac": null,
+            "reference": null,
+            "size": "XS",
+            "sl_no": 1,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 350,
+            "r_trac": null,
+            "reference": null,
+            "size": "S",
+            "sl_no": 2,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 400,
+            "r_trac": null,
+            "reference": null,
+            "size": "M",
+            "sl_no": 3,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 280,
+            "r_trac": null,
+            "reference": null,
+            "size": "L",
+            "sl_no": 4,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 230,
+            "r_trac": null,
+            "reference": null,
+            "size": "XL",
+            "sl_no": 5,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 180,
+            "r_trac": null,
+            "reference": null,
+            "size": "XXL",
+            "sl_no": 6,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          }
+        ],
+        "rate": 0.68,
+        "sgst_amount": 26.86,
+        "sgst_percentage": 2.5,
+        "total_amount": 1128.12,
+        "unit": "PCS"
+      },
+      {
+        "amount": 342,
+        "cgst_amount": 8.55,
+        "cgst_percentage": 2.5,
+        "description": "229032-C-SL/ GAP KIDS TOPS SIZE LABELS -CANADA",
+        "fixed_attributes": [
+          {
+            "fixed_attribute": null,
+            "fixed_attribute_name": null,
+            "fixed_attribute_value": null,
+            "sl_no": 1
+          }
+        ],
+        "hsn_code": "58071010",
+        "igst_amount": 0,
+        "igst_percentage": 0,
+        "info": null,
+        "item_specifications": {
+          "additional_label": null,
+          "anilox": null,
+          "b2b_pasting": null,
+          "barcode_symbology": null,
+          "board_material_fabric": "COTTON PLAIN WEAVE - 15MM",
+          "coating": null,
+          "color_front": "GAP BLUE",
+          "color_reverse": "Color Reverse",
+          "cutting": "ULTRASONIC",
+          "cylinder_size": null,
+          "data_source": null,
+          "deboss": null,
+          "distress_effect": null,
+          "emboss": null,
+          "eyelet": null,
+          "finished_height": null,
+          "finished_length": null,
+          "finished_width": null,
+          "flat_length": "56 mm",
+          "flat_width": "14 mm",
+          "foil": null,
+          "fold": "LOOP FOLD",
+          "fsc_statement": null,
+          "graining": null,
+          "hole": null,
+          "hook_hanger": null,
+          "lamination": null,
+          "mesh_for_adhesive": null,
+          "mesh_for_print": null,
+          "packing_instructions": null,
+          "powder_type": null,
+          "press_type": null,
+          "printing_size": null,
+          "punching": null,
+          "rfid_base": null,
+          "roll_fan_fold": null,
+          "sew_in_space": null,
+          "side_pasting": null,
+          "special_instructions": null,
+          "string": null,
+          "taping": null,
+          "test_required": null,
+          "thermal_ink": null,
+          "type_woven_quality": null,
+          "ups": null,
+          "uv": null,
+          "variable_length": null,
+          "varnish": null,
+          "weft_color": null,
+          "window_pasting": null,
+          "wrap_color": null
+        },
+        "line_item_po_number": "273002789_1",
+        "line_item_so_number": "273002992_1",
+        "product_line": "PRINTED FABRIC LABEL",
+        "quantity": 450,
+        "quantity_breakdown_by_size": [
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 50,
+            "r_trac": null,
+            "reference": null,
+            "size": "XS",
+            "sl_no": 1,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 100,
+            "r_trac": null,
+            "reference": null,
+            "size": "S",
+            "sl_no": 2,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 100,
+            "r_trac": null,
+            "reference": null,
+            "size": "M",
+            "sl_no": 3,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 100,
+            "r_trac": null,
+            "reference": null,
+            "size": "L",
+            "sl_no": 4,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 50,
+            "r_trac": null,
+            "reference": null,
+            "size": "XL",
+            "sl_no": 5,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          },
+          {
+            "colour_name": null,
+            "pack_size": null,
+            "quantity": 50,
+            "r_trac": null,
+            "reference": null,
+            "size": "XXL",
+            "sl_no": 6,
+            "style_number": "1188180-HOL'26",
+            "upc": null
+          }
+        ],
+        "rate": 0.76,
+        "sgst_amount": 8.55,
+        "sgst_percentage": 2.5,
+        "total_amount": 359.1,
+        "unit": "PCS"
+      }
+    ],
+    "order_header": {
+      "brand": "Gap Kids",
+      "date": "16-6-2026",
+      "global_customer_name": "GAP",
+      "pi_number": "/",
+      "po_number": "27POW1/273002789",
+      "reference_date": "16-6-2026",
+      "so_number": "27SOW1 /273002992",
+      "vendor_gst_number": "27AABCR8633E1ZD"
+    },
+    "summary": {
+      "amount_in_words": "ONE THOUSAND FOUR HUNDRED EIGHTY-SEVEN RUPEES ONLY",
+      "remark": "Based On Sales Orders 273002992.",
+      "round_difference": -0.22,
+      "total_amount_before_tax": 1416.4,
+      "total_amount_including_tax": 1487.22,
+      "total_cgst_amount": 35.41,
+      "total_igst_amount": 0,
+      "total_payment_after_round_diff": 1487,
+      "total_sgst_amount": 35.41
+    },
+    "terms_and_conditions": {
+      "other_terms": [
+        "If the supplies are delayed from the delivery schedule, it shall attract a 1% reduction on PO value for each days delay.",
+        "Product should match the needful specifications & its requisite Performance.",
+        "Any failure on Schedules or Products shall attract consequential costs.",
+        "All disputes are subject to Mumbai/ Navi-Mumbai jurisdiction only."
+      ],
+      "payment_terms": "60 DAYS CREDIT",
+      "quantity_tolerance": null,
+      "required_by_date": null
+    },
+    "vendor_info": {
+      "address": "Plot No. C-7/2, TTC Industrial Area, MIDC Pawane, Navi Mumbai -400705 MAHARASHTRA INDIA",
+      "cin": "U28129MH2000PTC127939",
+      "contact_phone": "022-61097200-7208",
+      "name": "r-pac (India) Pvt Ltd"
+    }
+  }
+}
+
+
+-----------------------------------------------------
+
+
+prompt 2 :- 
+
+Analyze the provided document and extract all available data fields, text blocks, and tabular rows into a fully comprehensive, valid JSON object. Since layouts and schemas change across different files, apply a dynamic, adaptive layout strategy based strictly on the following structural discovery rules:1. Document Architecture & MetadataHeader Discovery: Group all master document identifiers, metadata fields, dates, and processing numbers located at the top or margins into an isolated object named document_metadata.Entity Identification: Look for organizational references (issuers, recipients, ship-to landmarks). Extract each separate entity along with its address, tax IDs, and registry data into explicitly separated sub-objects within an entity collection. Ensure you preserve context roles like "issuer", "receiver", or "consignee".2. Multi-Value Data & Tabular DiscoveryDynamic Arrays: Identify any section containing repeating line entries, sequential column structures, grids, or tabular listings. Convert every individual row of a discovered table into a separate object within a dedicated array named after the section title.Parent-Child Nesting: Inspect rows for child breakdowns or secondary tables nested underneath them (e.g., a line item followed immediately by localized attribute lists or size/quantity matrices). Always nest these sub-tables as an internal array of objects inside their specific parent line item object.3. Key NormalizationSnake_Case Format: Clean all extracted column headers and metadata text keys into lowercase snake_case.Sanitization: Clean keys by dropping any asterisks (*), metric symbols, sorting symbols ( جیسے # or No.), and currencies. Ensure that keys remain intuitive and highly descriptive.Data Typing: Keep data types accurate. Map numeric amounts, counts, and percentages as numbers; preserve leading zeros on codes or serial strings; and capture complete alphanumeric strings without truncation.4. Footers, Totals, and ConditionsFinancial Summaries: Group all calculation blocks, sub-totals, localized tax arrays, and overall balances found at the bottom of the pages into a root object named financial_summary.Legal & Operational Terms: Extract any legal notifications, dispatch schedules, or credit conditions found at the base of the pages into an array of strings or simple descriptive key-value blocks.5. Output ConstraintsReturn ONLY a single, completely valid JSON object.Do NOT include any conversational introduction, markdown framing, code blocks (such as ```json), or markdown tags.Do not leave out data; if a key is explicitly mentioned but carries a completely empty or unreadable value, output it as null.
+
+
+
+output
+
+{
+  "document_metadata": {
+    "brand": "Gap Kids",
+    "date": "16-6-2026",
+    "document_type": "purchase_order",
+    "global_customer_name": "GAP",
+    "info": null,
+    "our_gst_number": "27AABCR8633E1ZD",
+    "pi_no": null,
+    "po_no": "27POW1/273002789",
+    "product_line": "PRINTED FABRIC LABEL",
+    "reference_dt": "16-6-2026",
+    "so_no": "27SOW1 /273002992",
+    "state": "MAHARASHTRA",
+    "state_code": "27"
+  },
+  "entity_collection": [
+    {
+      "address": "Plot No. C-7/2, TTC Industrial Area, MIDC Pawane\nNavi Mumbai -400705 MAHARASHTRA INDIA",
+      "cin": "U28129MH2000PTC127939",
+      "contact": "PH:022-61097200-7208",
+      "name": "r-pac (India) Pvt Ltd",
+      "role": "issuer"
+    },
+    {
+      "address": "PLOT 101, MIDC, 19TH STREET, SATPUR, NASHIK-422007 422007 INDIA",
+      "gst_number": "27AAACG5018K1ZN",
+      "name": "DELTA MANUFACTURING LIMITED",
+      "role": "receiver"
+    },
+    {
+      "address": "Plot No. A-195, TTC Industrial Area, MIDC Khairane Navi Mumbai 400710\nMAHARASHTRA INDIA",
+      "mode_of_transport": null,
+      "role": "consignee"
+    }
+  ],
+  "financial_summary": {
+    "in_words": "ONE THOUSAND FOUR HUNDRED EIGHTY-SEVEN RUPEES ONLY",
+    "round_diff": -0.22,
+    "total_amount_line_items": 1416.4,
+    "total_amount_with_taxes": 1487.22,
+    "total_cgst_amount": 35.41,
+    "total_igst_amount": 0,
+    "total_payment": 1487,
+    "total_sgst_amount": 35.41
+  },
+  "legal_operational_terms": {
+    "authorised_signatory": null,
+    "e_and_oe": null,
+    "other_terms": [
+      "If the supplies are delayed from the delivery schedule, it shall attract a 1% reduction on PO value for each days delay.",
+      "Product should match the needful specifications & its requisite Performance.",
+      "Any failure on Schedules or Products shall attract consequential costs.",
+      "All disputes are subject to Mumbai/ Navi-Mumbai jurisdiction only."
+    ],
+    "payment_terms": "60 DAYS CREDIT",
+    "quantity_tolerance": null,
+    "remark": "Based On Sales Orders 273002992.",
+    "required_by_date": null
+  },
+  "line_items": [
+    {
+      "amount": 1074.4,
+      "cgst_amt": 26.86,
+      "cgst_percent": 2.5,
+      "description": "229032-G-SL/ GAP KIDS TOPS SIZE LABELS -GLOBAL",
+      "fixed_attributes": [
+        {
+          "fixed_attribute": null,
+          "fixed_attribute_name": null,
+          "fixed_attribute_value": null,
+          "sl_no": 1
+        }
+      ],
+      "hsn_code": "58071010",
+      "igst_amt": 0,
+      "igst_percent": 0,
+      "item_specification": {
+        "additional_label": null,
+        "anilox": null,
+        "b2b_pasting": null,
+        "barcode_symbology": null,
+        "board_material_fabric": "COTTON PLAIN WEAVE - 15MM",
+        "coating": null,
+        "color_front": "GAP BLUE",
+        "color_reverse": null,
+        "cutting": "ULTRASONIC",
+        "cylinder_size": null,
+        "data_source": null,
+        "deboss": null,
+        "distress_effect": null,
+        "emboss": null,
+        "eyelet": null,
+        "finished_height": null,
+        "finished_length": null,
+        "finished_width": null,
+        "flat_length": "50 mm",
+        "flat_width": "14 mm",
+        "foil": null,
+        "fold": "LOOP FOLD",
+        "fsc_statement": null,
+        "graining": null,
+        "hole": null,
+        "hook_hanger": null,
+        "lamination": null,
+        "mesh_for_adhesive": null,
+        "mesh_for_print": null,
+        "packing_instrutions": null,
+        "powder_type": null,
+        "press_type": null,
+        "printing_size": null,
+        "punching": null,
+        "rfid_base": null,
+        "roll_fan_fold": null,
+        "sew_in_space": null,
+        "side_pasting": null,
+        "special_instructions": null,
+        "string": null,
+        "taping": null,
+        "test_requierd": null,
+        "thermal_ink": null,
+        "type_woven_quality": null,
+        "ups": null,
+        "uv": null,
+        "variable_length": null,
+        "varnish": null,
+        "weft_color": null,
+        "window_pasting": null,
+        "wrap_color": null
+      },
+      "po_no": "273002789_0",
+      "qty": 1580,
+      "rate": 0.68,
+      "sgst_amt": 26.86,
+      "sgst_percent": 2.5,
+      "size_breakdown": [
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 140,
+          "r_trac": null,
+          "reference": null,
+          "size": "XS",
+          "sl_no": 1,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 350,
+          "r_trac": null,
+          "reference": null,
+          "size": "S",
+          "sl_no": 2,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 400,
+          "r_trac": null,
+          "reference": null,
+          "size": "M",
+          "sl_no": 3,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 280,
+          "r_trac": null,
+          "reference": null,
+          "size": "L",
+          "sl_no": 4,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 230,
+          "r_trac": null,
+          "reference": null,
+          "size": "XL",
+          "sl_no": 5,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 180,
+          "r_trac": null,
+          "reference": null,
+          "size": "XXL",
+          "sl_no": 6,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        }
+      ],
+      "size_breakdown_total_quantity": 1580,
+      "so_no": "273002992_0",
+      "total_amount": 1128.12,
+      "unit": "PCS"
+    },
+    {
+      "amount": 342,
+      "cgst_amt": 8.55,
+      "cgst_percent": 2.5,
+      "description": "229032-C-SL/ GAP KIDS TOPS SIZE LABELS -CANADA",
+      "fixed_attributes": [
+        {
+          "fixed_attribute": null,
+          "fixed_attribute_name": null,
+          "fixed_attribute_value": null,
+          "sl_no": 1
+        }
+      ],
+      "hsn_code": "58071010",
+      "igst_amt": 0,
+      "igst_percent": 0,
+      "item_specification": {
+        "additional_label": null,
+        "anilox": null,
+        "b2b_pasting": null,
+        "barcode_symbology": null,
+        "board_material_fabric": "COTTON PLAIN WEAVE - 15MM",
+        "coating": null,
+        "color_front": "GAP BLUE",
+        "color_reverse": null,
+        "cutting": "ULTRASONIC",
+        "cylinder_size": null,
+        "data_source": null,
+        "deboss": null,
+        "distress_effect": null,
+        "emboss": null,
+        "eyelet": null,
+        "finished_height": null,
+        "finished_length": null,
+        "finished_width": null,
+        "flat_length": "56 mm",
+        "flat_width": "14 mm",
+        "foil": null,
+        "fold": "LOOP FOLD",
+        "fsc_statement": null,
+        "graining": null,
+        "hole": null,
+        "hook_hanger": null,
+        "lamination": null,
+        "mesh_for_adhesive": null,
+        "mesh_for_print": null,
+        "packing_instrutions": null,
+        "powder_type": null,
+        "press_type": null,
+        "printing_size": null,
+        "punching": null,
+        "rfid_base": null,
+        "roll_fan_fold": null,
+        "sew_in_space": null,
+        "side_pasting": null,
+        "special_instructions": null,
+        "string": null,
+        "taping": null,
+        "test_requierd": null,
+        "thermal_ink": null,
+        "type_woven_quality": null,
+        "ups": null,
+        "uv": null,
+        "variable_length": null,
+        "varnish": null,
+        "weft_color": null,
+        "window_pasting": null,
+        "wrap_color": null
+      },
+      "po_no": "273002789_1",
+      "qty": 450,
+      "rate": 0.76,
+      "sgst_amt": 8.55,
+      "sgst_percent": 2.5,
+      "size_breakdown": [
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 50,
+          "r_trac": null,
+          "reference": null,
+          "size": "XS",
+          "sl_no": 1,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 100,
+          "r_trac": null,
+          "reference": null,
+          "size": "S",
+          "sl_no": 2,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 100,
+          "r_trac": null,
+          "reference": null,
+          "size": "M",
+          "sl_no": 3,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 100,
+          "r_trac": null,
+          "reference": null,
+          "size": "L",
+          "sl_no": 4,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 50,
+          "r_trac": null,
+          "reference": null,
+          "size": "XL",
+          "sl_no": 5,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        },
+        {
+          "colour_name": null,
+          "pack_size": null,
+          "quantity": 50,
+          "r_trac": null,
+          "reference": null,
+          "size": "XXL",
+          "sl_no": 6,
+          "style_number": "1188180-HOL'26",
+          "upc": null
+        }
+      ],
+      "size_breakdown_total_quantity": 450,
+      "so_no": "273002992_1",
+      "total_amount": 359.1,
+      "unit": "PCS"
+    }
+  ]
+}

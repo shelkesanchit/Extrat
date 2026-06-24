@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF/Image Data Extraction - JSON Output</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 Document Data Extraction</h1>
+            <p class="subtitle">Upload a PDF or image and get structured JSON back</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <div class="upload-icon">📁</div>
+                <h2>Upload Document</h2>
+                <p>Drag & drop or click to select PDF/Image</p>
+                <input type="file" id="fileInput" accept=".pdf,.png,.jpg,.jpeg,.gif,.bmp,.tiff" hidden>
+                <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                    Choose File
+                </button>
+            </div>
+
+            <div id="uploadProgress" class="upload-progress" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Uploading...</p>
+            </div>
+
+            <div id="uploadResult" class="upload-result" style="display: none;">
+                <div id="tokenUsageBadge" class="token-usage-badge" style="display: none;"></div>
+                <div class="result-icon">✅</div>
+                <h3>Extraction Complete</h3>
+                <p id="resultFilename"></p>
+                <div class="json-preview upload-json-preview">
+                    <pre id="resultJson"></pre>
+                </div>
+                <button class="btn btn-success" id="copyJsonBtn" type="button">Copy JSON</button>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <div class="error-icon">❌</div>
+                <p id="errorText"></p>
+                <button class="btn btn-secondary" onclick="resetUpload()">Try Again</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>How it works</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Upload Document</h4>
+                        <p>Upload PDF or image containing order/invoice data</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>AI Extraction</h4>
+                        <p>Gemini API extracts all data into structured JSON</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>JSON Output</h4>
+                        <p>View the extracted structured JSON directly in the browser</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Use the JSON</h4>
+                        <p>Copy the response into your own workflow or integrations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
