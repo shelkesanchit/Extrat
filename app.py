@@ -331,6 +331,11 @@ Example:
 
 Store exactly as written.
 
+{
+        "term_name": "payment_terms",
+        "term_remark": "60 DAYS CREDIT"
+      },
+
 ---
 
 ## E. ITEM WISE COMMERCIALS
