@@ -261,6 +261,41 @@ header h1 {
     margin-bottom: 1.5rem;
 }
 
+.tabs-container {
+    display: inline-flex;
+    background: var(--bg-dark);
+    padding: 0.35rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    margin: 0.5rem auto 1rem;
+    gap: 0.25rem;
+    justify-content: center;
+}
+
+.tab-btn {
+    padding: 0.55rem 1.25rem;
+    background: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: #ffffff;
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
 .upload-json-preview {
     margin: 1rem 0 1.5rem;
     text-align: left;

@@ -475,6 +475,63 @@ Never lose information.
     return extract_json_from_text(response.text), extract_token_usage(response)
 
 
+def convert_to_erp_flat_arrays(json_data):
+    if not isinstance(json_data, dict):
+        return {}
+    erp_data = json_data.get("erp_data", {})
+    if not isinstance(erp_data, dict):
+        erp_data = {}
+        
+    header = erp_data.get("transaction_header", {})
+    header_list = [header] if isinstance(header, dict) else (header or [])
+    
+    return {
+        "header": header_list,
+        "items": erp_data.get("item_details") or [],
+        "item_terms": erp_data.get("item_wise_terms") or [],
+        "commercials": erp_data.get("document_wise_commercials") or [],
+        "document_terms": erp_data.get("document_terms") or []
+    }
+
+
+def convert_to_erp_grouped(json_data):
+    if not isinstance(json_data, dict):
+        return {}
+    erp_data = json_data.get("erp_data", {})
+    if not isinstance(erp_data, dict):
+        erp_data = {}
+        
+    item_details = erp_data.get("item_details") or []
+    item_wise_terms = erp_data.get("item_wise_terms") or []
+    
+    if not isinstance(item_details, list):
+        item_details = []
+    if not isinstance(item_wise_terms, list):
+        item_wise_terms = []
+        
+    grouped_items = []
+    for item in item_details:
+        if not isinstance(item, dict):
+            grouped_items.append(item)
+            continue
+        item_copy = dict(item)
+        item_copy["terms"] = []
+        
+        parent_ref = item_copy.get("parent_po_no_ref")
+        for term in item_wise_terms:
+            if isinstance(term, dict) and term.get("parent_po_no_ref") == parent_ref:
+                item_copy["terms"].append(term)
+                
+        grouped_items.append(item_copy)
+        
+    return {
+        "header": erp_data.get("transaction_header") or {},
+        "items": grouped_items,
+        "commercials": erp_data.get("document_wise_commercials") or [],
+        "document_terms": erp_data.get("document_terms") or []
+    }
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -505,10 +562,14 @@ def upload_file_route():
     try:
         file.save(filepath)
         extracted_data, token_usage = extract_data_with_gemini(filepath)
+        erp_flat = convert_to_erp_flat_arrays(extracted_data)
+        erp_grouped = convert_to_erp_grouped(extracted_data)
         return jsonify({
             "success": True,
             "filename": filename,
             "extracted_data": extracted_data,
+            "erp_flat_arrays": erp_flat,
+            "erp_grouped": erp_grouped,
             "token_usage": token_usage,
         })
     except json.JSONDecodeError as error:

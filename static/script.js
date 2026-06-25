@@ -1,5 +1,37 @@
+// Global variable to hold the extracted JSON formats
+let currentExtractedData = null;
+
 // File input handler
 document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+// Tab selection handler
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (!currentExtractedData) return;
+        
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        btn.classList.add('active');
+        
+        // Update JSON content
+        const target = btn.getAttribute('data-target');
+        let selectedJson = null;
+        if (target === 'raw') {
+            selectedJson = currentExtractedData.raw;
+        } else if (target === 'flat') {
+            selectedJson = currentExtractedData.flat;
+        } else if (target === 'grouped') {
+            selectedJson = currentExtractedData.grouped;
+        }
+        
+        const resultJson = document.getElementById('resultJson');
+        if (resultJson && selectedJson) {
+            resultJson.textContent = JSON.stringify(selectedJson, null, 2);
+        }
+    });
+});
 
 const copyJsonBtn = document.getElementById('copyJsonBtn');
 if (copyJsonBtn) {
@@ -95,7 +127,7 @@ async function uploadFile(file) {
         const data = await response.json();
 
         if (response.ok && data.success) {
-            showSuccess(data.filename, data.extracted_data, data.token_usage);
+            showSuccess(data.filename, data, data.token_usage);
         } else {
             showError(data.error || 'Upload failed');
         }
@@ -104,11 +136,25 @@ async function uploadFile(file) {
     }
 }
 
-function showSuccess(filename, extractedData, tokenUsage) {
+function showSuccess(filename, data, tokenUsage) {
     document.getElementById('uploadProgress').style.display = 'none';
     document.getElementById('uploadResult').style.display = 'block';
     document.getElementById('resultFilename').textContent = filename;
-    document.getElementById('resultJson').textContent = JSON.stringify(extractedData, null, 2);
+    
+    currentExtractedData = {
+        raw: data.extracted_data,
+        flat: data.erp_flat_arrays,
+        grouped: data.erp_grouped
+    };
+    
+    // Reset active tab class to raw on show
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const rawTab = document.querySelector('.tab-btn[data-target="raw"]');
+    if (rawTab) {
+        rawTab.classList.add('active');
+    }
+    
+    document.getElementById('resultJson').textContent = JSON.stringify(data.extracted_data, null, 2);
 
     const tokenUsageBadge = document.getElementById('tokenUsageBadge');
     if (tokenUsageBadge) {
@@ -151,6 +197,7 @@ function showError(message) {
 }
 
 function resetUpload() {
+    currentExtractedData = null;
     document.getElementById('uploadBox').style.display = 'block';
     document.getElementById('uploadProgress').style.display = 'none';
     document.getElementById('uploadResult').style.display = 'none';
@@ -166,5 +213,11 @@ function resetUpload() {
     const resultJson = document.getElementById('resultJson');
     if (resultJson) {
         resultJson.textContent = '';
+    }
+    // Reset tab active state to raw
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const rawTab = document.querySelector('.tab-btn[data-target="raw"]');
+    if (rawTab) {
+        rawTab.classList.add('active');
     }
 }
